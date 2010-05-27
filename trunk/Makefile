@@ -8,7 +8,7 @@ all:
 
 
 test: 
-	$(OCAMLC) -custom qrencode_stubs.o test.ml -o test -cclib -lqrencode 
+	$(OCAMLC) -custom qrencode_stubs.o test.ml -o test -cclib -lqrencode -cclib -lpng
 
 clean: 
 	rm -f *.o
