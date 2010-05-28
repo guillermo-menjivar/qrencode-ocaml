@@ -22,5 +22,22 @@ module QRcode =
   end
 
 
+module Basic = 
+  struct 
+    exception Error 
+    let encode data ?(size=4) ?(margin=3) outfile = 
+      let input = QRinput.create () in 
+      let mode = QRencodeMode.mode_8 () in 
+      match QRinput.append input mode data with 
+	  0 -> let code = QRcode.encode input in QRcode.to_png code size margin outfile 
+	| _ -> raise Error
+
+  end
+
+
+
+
+
+
 
 
